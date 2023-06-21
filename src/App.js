@@ -3,6 +3,7 @@ import "./App.css";
 import { useState } from "react";
 import { Navbar, Container, Nav, Row, Col } from "react-bootstrap";
 import data from "./data.js";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   let [keyboards] = useState(data);
@@ -12,7 +13,7 @@ function App() {
       <Navbar bg="dark" variant="dark" expand="lg" className="navbar">
         <Container>
           <Navbar.Brand
-            href="#home"
+            href="/"
             className="navbar-brand, text-animation-effect"
           >
             Jung's KeyBoard
@@ -23,14 +24,14 @@ function App() {
           />
           <Navbar.Collapse id="navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Link href="#home" className="nav-link">
+              <Nav.Link href="/" className="nav-link">
                 Home
               </Nav.Link>
-              <Nav.Link href="#features" className="nav-link">
-                Features
+              <Nav.Link href="/about" className="nav-link">
+                About
               </Nav.Link>
-              <Nav.Link href="#pricing" className="nav-link">
-                Pricing
+              <Nav.Link href="/cart" className="nav-link">
+                Cart
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -39,7 +40,12 @@ function App() {
 
       <div className="main-bg"></div>
 
-      <KeyboardList keyboards={keyboards} />
+      <Routes>
+        <Route path="/" element={<KeyboardList keyboards={keyboards} />} />
+        <Route path="/detail" element={<div>상세페이지임</div>} />
+        <Route path="/about" element={<div>어바웃페이지임</div>} />
+        <Route path="/cart" element={<div>어바웃페이지임</div>} />
+      </Routes>
     </div>
   );
 }
