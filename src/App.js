@@ -8,7 +8,7 @@ function App() {
   let [keyboards] = useState(data);
 
   return (
-    <div>
+    <div className="App">
       <Navbar bg="dark" variant="dark" expand="lg" className="navbar">
         <Container>
           <Navbar.Brand
@@ -39,31 +39,35 @@ function App() {
 
       <div className="main-bg"></div>
 
-      <Container className="production-container">
-        {Array.from({ length: Math.ceil(keyboards.length / 3) }).map(
-          (_, rowIndex) => (
-            <Row className="production-container-row">
-              {keyboards
-                .slice(rowIndex * 3, rowIndex * 3 + 3)
-                .map((keyboard) => (
-                  <Col>
-                    <div className="img-container">
-                      <img
-                        className="img-size"
-                        src={keyboard.src}
-                        alt={keyboard.title}
-                      />
-                    </div>
-                    <h4>{keyboard.title}</h4>
-                    <p>{keyboard.content}</p>
-                    <p>{keyboard.price}</p>
-                  </Col>
-                ))}
-            </Row>
-          )
-        )}
-      </Container>
+      <KeyboardList keyboards={keyboards} />
     </div>
+  );
+}
+
+function KeyboardList({ keyboards }) {
+  return (
+    <Container className="production-container">
+      {Array.from({ length: Math.ceil(keyboards.length / 3) }).map(
+        (_, rowIndex) => (
+          <Row className="production-container-row">
+            {keyboards.slice(rowIndex * 3, rowIndex * 3 + 3).map((keyboard) => (
+              <Col>
+                <div className="img-container">
+                  <img
+                    className="img-size"
+                    src={keyboard.src}
+                    alt={keyboard.title}
+                  />
+                </div>
+                <h4>{keyboard.title}</h4>
+                <p>{keyboard.content}</p>
+                <p>{keyboard.price}</p>
+              </Col>
+            ))}
+          </Row>
+        )
+      )}
+    </Container>
   );
 }
 

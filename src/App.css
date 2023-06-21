@@ -27,8 +27,8 @@
 }
 
 .main-bg {
-  margin-top: 10px;
-  height: 250px;
+  height: 350px;
+  width: 100%;
   background-image: url("../public/static/main-bg.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -54,16 +54,24 @@
 }
 
 .img-container {
-  width: 100%; /* 부모 요소의 가로 너비를 100%로 설정 */
-  height: 0; /* 초기 세로 높이를 0으로 설정 */
-  padding-bottom: 100%; /* 측면 비율 1:1을 위해 padding-bottom 값을 100%로 설정 */
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
   position: relative;
   margin-bottom: -50px;
 }
 
 .img-container img {
-  position: absolute; /* 이미지의 포지션 값을 절대 위치로 설정 */
-  width: 80%; /* 이미지의 가로 너비를 100%로 설정 */
-  height: 80%; /* 이미지의 세로 높이를 100%로 설정 */
-  object-fit: cover; /* 이미지가 적절하게 잘리지 않도록 설정 */
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 5px 5px 5px #878686;
+  transition: transform 0.1s ease;
+}
+
+.img-container img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
