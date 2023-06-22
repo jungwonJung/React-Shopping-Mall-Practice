@@ -1,13 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { useState } from "react";
-import { Navbar, Container, Nav, Row, Col } from "react-bootstrap";
-import data from "./data.js";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
+import ProductList from "./routers/main.js";
 
 function App() {
-  let [keyboards] = useState(data);
-
   return (
     <div className="App">
       <Navbar bg="dark" variant="dark" expand="lg" className="navbar">
@@ -41,39 +39,12 @@ function App() {
       <div className="main-bg"></div>
 
       <Routes>
-        <Route path="/" element={<KeyboardList keyboards={keyboards} />} />
+        <Route path="/" element={<ProductList />} />
         <Route path="/detail" element={<div>상세페이지임</div>} />
         <Route path="/about" element={<div>어바웃페이지임</div>} />
         <Route path="/cart" element={<div>어바웃페이지임</div>} />
       </Routes>
     </div>
-  );
-}
-
-function KeyboardList({ keyboards }) {
-  return (
-    <Container className="production-container">
-      {Array.from({ length: Math.ceil(keyboards.length / 3) }).map(
-        (_, rowIndex) => (
-          <Row className="production-container-row">
-            {keyboards.slice(rowIndex * 3, rowIndex * 3 + 3).map((keyboard) => (
-              <Col>
-                <div className="img-container">
-                  <img
-                    className="img-size"
-                    src={keyboard.src}
-                    alt={keyboard.title}
-                  />
-                </div>
-                <h4>{keyboard.title}</h4>
-                <p>{keyboard.content}</p>
-                <p>{keyboard.price}</p>
-              </Col>
-            ))}
-          </Row>
-        )
-      )}
-    </Container>
   );
 }
 
