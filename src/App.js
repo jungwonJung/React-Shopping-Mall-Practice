@@ -40,7 +40,6 @@ function App() {
 
       <Routes>
         <Route path="/" element={<ProductList />} />
-        <Route path="/detail" element={<div>상세페이지임</div>} />
         <Route path="/about" element={<div>어바웃페이지임</div>} />
         <Route path="/cart" element={<div>어바웃페이지임</div>} />
       </Routes>
