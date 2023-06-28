@@ -1,11 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import "./css/App.css";
+import "./css/header.css";
 import { useState } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
-import ProductList from "./routers/main.js";
+import ProductList from "./routers/list.js";
+import ProductDetail from "./routers/detail.js";
+import data from "./data.js";
 
 function App() {
+  let [products] = useState(data);
+
   return (
     <div className="App">
       <Navbar bg="dark" variant="dark" expand="lg" className="navbar">
@@ -42,6 +47,10 @@ function App() {
         <Route path="/" element={<ProductList />} />
         <Route path="/about" element={<div>어바웃페이지임</div>} />
         <Route path="/cart" element={<div>어바웃페이지임</div>} />
+        <Route
+          path="/detail/:id"
+          element={<ProductDetail products={products} />}
+        />
       </Routes>
     </div>
   );

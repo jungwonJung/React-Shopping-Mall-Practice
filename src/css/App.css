@@ -1,0 +1,13 @@
+a {
+  text-decoration: none;
+}
+
+.text-animation-effect {
+  color: transparent;
+  text-transform: uppercase;
+  background: linear-gradient(purple 30%, cyan, magenta 60%);
+  background-size: contain;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 1px silver;
+  filter: drop-shadow(5px 5px 1px black) drop-shadow(1px 1px 1px grey);
+}

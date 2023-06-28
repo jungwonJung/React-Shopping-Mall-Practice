@@ -1,0 +1,36 @@
+.navbar {
+  background-color: #333;
+  padding: 10px;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-toggler {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  font-size: 20px;
+}
+
+.nav-link {
+  font-size: 18px;
+  color: #fff;
+  margin-right: 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: magenta;
+}
+
+.main-bg {
+  height: 350px;
+  width: 100%;
+  background-image: url("../../public/static/main-bg.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
